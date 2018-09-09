@@ -1,5 +1,6 @@
 package implementation;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,9 +24,7 @@ public class FlightMap {
 			String start = priceList.get(i).toString().substring(0, 1);
 			String end = priceList.get(i).toString().substring(1, 2);
 			int price = Integer.parseInt(priceList.get(i).toString().substring(2));
-			
-			//System.out.println("debug: start: " + start + "end: " + end + "price: " + price);
-			
+		
 			if(priceMap.containsKey(start) && !priceMap.containsKey(end)){
 				int newPrice = priceMap.get(start) + price;
 				priceMap.put(end, newPrice);

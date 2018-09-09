@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="run" name="310project">
+
+<project default="run" name="Project1" basedir = ".">
+	<description>
+		CSCI310 Project1 build file
+	</description>
+	<property name="src" location="src"/>
+  	<property name="bin" location="bin"/>
+  
+  	<target name="init">
+    <tstamp/>
+    <mkdir dir="${bin}/dist/doc"/>
+  	</target>
+  	
+  	<target name="clean">
+    <delete dir="${bin}/dist/doc"/>
+    <delete dir="${bin}/dist"/>
+  	</target>
+  	
+  	<target name="compile">
+    <javac includeantruntime="false" srcdir="${src}/implementation" destdir="${bin}"/>
+  	</target>
+  	
+  	<target name="dist" depends="compile">
+    <mkdir dir="dist"/>
+    <jar jarfile="dist/Project1.jar" basedir="${bin}"/>
+  	</target>
+  	
+  	<target name="test" depends="compile">
+  		<junit>
+  			<test name="TestSearchMap"/>
+  				<classpath location="/Users/SophieWang/Downloads/mysql-connector-java-5.0.8/src/lib/junit.jar"/>
+  				<classpath location="${src}/test"/>
+  		</junit>
+  	</target>
+  
 	<target name="run" depends="compile">
 		<java classname="implementation.SearchMap">
-			<classpath path="staging" />
+			<classpath path="${bin}" />
 		</java>
 	</target>
-	<target name="compile">
-		<javac includeantruntime="false" srcdir="./src" destdir="staging" />
-	</target>
+	
 </project>
