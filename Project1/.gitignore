@@ -17,7 +17,7 @@
 *.tar.gz
 *.rar
 
-.metadata/
-.recommenders/
+../.metadata/
+../.recommenders/
 
 /bin/
