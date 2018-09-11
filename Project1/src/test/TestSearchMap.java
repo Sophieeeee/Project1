@@ -1,4 +1,5 @@
 package test;
+
 import implementation.SearchMap;
 
 import static org.junit.Assert.*;
@@ -12,5 +13,5 @@ public class TestSearchMap {
 		String result = SearchMap.removeWhiteSpace("one two three four");
 		assertEquals("onetwothreefour", result);
 	}
-
+	
 }

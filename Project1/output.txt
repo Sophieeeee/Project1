@@ -1,0 +1,28 @@
+Output test
+P
+PW200
+PR300
+RX200
+QX375
+WS250
+ST300
+TW350
+WY500
+YZ450
+YR600
+key: P value: 0
+key: R value: 300
+key: S value: 450
+key: T value: 750
+key: W value: 200
+key: X value: 500
+key: Y value: 700
+key: Z value: 1150
+key: P value: P
+key: R value: P, R
+key: S value: P, W, S
+key: T value: P, W, S, T
+key: W value: P, W
+key: X value: P, R, X
+key: Y value: P, W, Y
+key: Z value: P, W, Y, Z
