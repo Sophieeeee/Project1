@@ -1,9 +1,14 @@
 package implementation;
 
 import java.io.*;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Scanner; 
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+
 
 public class SearchMap {
 	/**
@@ -27,8 +32,6 @@ public class SearchMap {
 		String originCity = scanner.nextLine();
 		
 		PrintWriter output = new PrintWriter(outputFile);
-		output.println("Output test");
-		output.println(originCity);
 		
 		while(scanner.hasNextLine()){
 			String routeCost = removeWhiteSpace(scanner.nextLine());
@@ -37,24 +40,25 @@ public class SearchMap {
 			}
 		}
 		
-		output.println("before: " + routeCostList);
 		
 		FlightMap flightmap = new FlightMap(originCity, routeCostList);
 		flightmap.setUpMap();
 		Map<String, Integer> testMap = flightmap.getPriceMap();
 		
 		
+		output.println("Destination		Flight Route from " + originCity + "		Total Cost");
 		
 		
-		output.println("after: " + routeCostList);
-		for (String key : testMap.keySet()) {
-			   
-			   output.println("key: " + key + " value: " + testMap.get(key));
+			Iterator<Entry<String, Integer>> it1 = testMap.entrySet().iterator();
+			Iterator<Entry<String, String>> it2 = flightmap.getRouteMap().entrySet().iterator();
+			while(it1.hasNext() || it2.hasNext()){
+				Map.Entry pair1 = (Map.Entry)it1.next();
+				Map.Entry pair2 = (Map.Entry)it2.next();
+				
+				
+		        output.println(pair1.getKey() + "			" + pair2.getValue() + "				" + pair1.getValue());
 			}
-		for (String key : flightmap.getRouteMap().keySet()) {
-			   
-			   output.println("key: " + key + " value: " + flightmap.getRouteMap().get(key));
-			}
+		
 		output.close();
 	}
 }

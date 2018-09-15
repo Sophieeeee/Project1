@@ -87,8 +87,8 @@ public class FlightMap {
 		if(priceList.size() != 0){
 			setUpPriceMap(priceList);
 		}
-		priceMap.remove("P");
-		routeMap.remove("P");
+		priceMap.remove(originCity);
+		routeMap.remove(originCity);
 	}
 	
 
